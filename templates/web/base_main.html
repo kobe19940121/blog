@@ -1,159 +1,239 @@
-{% extends 'web/base.html' %}
+{% extends 'web/base.html'  %}
 
-{% block title %}
-首页_杨青个人博客 - 一个站在web前端设计之路的女技术员个人博客网站
+{% block title%}
+首页_胡才豪个人博客
 {% endblock %}
+
 {% block css %}
 <link href="/static/web/css/base.css" rel="stylesheet">
 <link href="/static/web/css/index.css" rel="stylesheet">
 <link href="/static/web/css/m.css" rel="stylesheet">
-<script src="/static/web/js/jquery.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="/static/web/js/comm.js"></script>
+<script src="/static/web/js/jquery.min.js" ></script>
+<script src="/static/web/js/hc-sticky.js"></script>
+<script src="/static/web/js/comm.js"></script>
 {% endblock %}
+
 {% block header %}
-<header class="header-navigation" id="header">
-  <nav><div class="logo"><a href="/">杨青个人博客</a></div>
-    <h2 id="mnavh"><span class="navicon"></span></h2>
-    <ul id="starlist">
-      <li><a href="index.html">网站首页</a></li>
-      <li><a href="share.html">我的相册</a></li>
-      <li><a href="list.html">我的日记</a></li>
-      <li><a href="about.html">关于我</a></li>
-      <li><a href="gbook.html">留言</a></li>
-      <li><a href="info.html">内容页</a></li>
-      <li><a href="infopic.html">内容页</a></li>
-    </ul>
-</nav>
+<header id="header">
+  <div class="navbar">
+    <div class="topbox">
+      <p class="welcome">您好，欢迎您访问胡才豪个人博客，在这里，它不仅仅是记录个人的平台，更是一个记录世界、时代的平台！</p>
+      <div class="searchbox">
+        <div id="search_bar" class="search_bar">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-navigation">
+    <nav>
+      <div class="logo"><a href="#">胡才豪个人博客</a></div>
+      <h2 id="mnavh"><span class="navicon"></span></h2>
+      <ul id="starlist">
+        <li><a href="{{ url_for('web.index') }}">网站首页</a></li>
+        <li><a href="{{ url_for('web.about') }}">关于我</a></li>
+        <li><a href="{{ url_for('web.share') }}">模板分享</a></li>
+        <li><a href="{{ url_for('web.list') }}">博客日记</a></li>
+
+      </ul>
+    </nav>
+  </div>
 </header>
 {% endblock %}
-{% block article %}
-<article>
-  <aside class="l_box">
-      <div class="about_me">
-        <h2>关于我</h2>
-        <ul>
-          <i><img src="/static/web/images/4.jpg"></i>
-          <p><b>杨青</b>，一个80后草根女站长！09年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。</p>
-        </ul>
+
+{% block content %}
+<div class="wrapper">
+  <main>
+    <!--banner begin-->
+    <div class="banner">
+      <div id="banner" class="fader">
+        <li class="slide" ><a href="#" title="D设计师博客-一个热爱生活的设计师"><img src="/static/web/images/1.jpg"><span class="imginfo">D设计师博客-一个热爱生活的设计师</span></a></li>
+        <li class="slide" ><a href="#" title="个人博客，属于我的小世界！"><img src="/static/web/images/2.jpg"><span class="imginfo">个人博客，属于我的小世界！</span></a></li>
+        <div class="fader_controls">
+          <div class="page prev" data-target="prev">&lsaquo;</div>
+          <div class="page next" data-target="next">&rsaquo;</div>
+          <ul class="pager_list">
+          </ul>
+        </div>
       </div>
-      <div class="wdxc">
-        <h2>我的相册</h2>
-        <ul>
-          <li><a href="/"><img src="/static/web/images/7.jpg"></a></li>
-          <li><a href="/"><img src="/static/web/images/8.jpg"></a></li>
-          <li><a href="/"><img src="/static/web/images/9.jpg"></a></li>
-          <li><a href="/"><img src="/static/web/images/10.jpg"></a></li>
-          <li><a href="/"><img src="/static/web/images/11.jpg"></a></li>
-          <li><a href="/"><img src="/static/web/images/12.jpg"></a></li>
-        </ul>
-      </div>
-      <div class="search">
-        <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
-          <input name="keyboard" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
-          <input name="show" value="title" type="hidden">
-          <input name="tempid" value="1" type="hidden">
-          <input name="tbname" value="news" type="hidden">
-          <input name="Submit" class="input_submit" value="搜索" type="submit">
-        </form>
-      </div>
-      <div class="fenlei">
-        <h2>文章分类</h2>
-        <ul>
-          <li><a href="/">学无止境（33）</a></li>
-          <li><a href="/">日记（19）</a></li>
-          <li><a href="/">慢生活（520）</a></li>
-          <li><a href="/">美文欣赏（40）</a></li>
-        </ul>
-      </div>
-      <div class="tuijian">
-        <h2>站长推荐</h2>
-        <ul>
-          <li><a href="/">你是什么人便会遇上什么人</a></li>
-          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
-          <li><a href="/">你是什么人便会遇上什么人</a></li>
-          <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-          <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-          <li><a href="/">个人博客模板《绅士》后台管理</a></li>
-        </ul>
-      </div>
-      <div class="links">
-        <h2>友情链接</h2>
-        <ul>
-          <a href="http://www.yangqq.com">杨青个人博客</a> <a href="http://www.yangqq.com">杨青博客</a>
-        </ul>
-      </div>
-      <div class="guanzhu">
-        <h2>关注我 么么哒</h2>
-        <ul>
-          <img src="/static/web/images/wx.jpg">
-        </ul>
-      </div>
-  </aside>
-  <main class="r_box">
-    <li><i><a href="/"><img src="/static/web/images/1.jpg"></a></i>
-      <h3><a href="/">你是什么人便会遇上什么人</a></h3>
-      <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/2.jpg"></a></i>
-      <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
-      <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/3.jpg"></a></i>
-      <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
-      <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/4.jpg"></a></i>
-      <h3><a href="/">擦肩而过</a></h3>
-      <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
-    </li>
-     <li><i><a href="/"><img src="/static/web/images/1.jpg"></a></i>
-      <h3><a href="/">你是什么人便会遇上什么人</a></h3>
-      <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/2.jpg"></a></i>
-      <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
-      <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/3.jpg"></a></i>
-      <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
-      <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/4.jpg"></a></i>
-      <h3><a href="/">擦肩而过</a></h3>
-      <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
-    </li>
-    <li>
-      <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
-      <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/5.jpg"></a></i>
-      <h3><a href="/">擦肩而过</a></h3>
-      <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/6.jpg"></a></i>
-      <h3><a href="/">女孩都有浪漫的小情怀——浪漫的求婚词</a></h3>
-      <p>还在为浪漫的求婚词而烦恼不知道该怎么说吗？女孩子都有着浪漫的小情怀，对于求婚更是抱着满满的浪漫期待，也希望在求婚那一天对方可以给自己一个最浪漫的求婚词。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/7.jpg"></a></i>
-      <h3><a href="/">你是什么人便会遇上什么人</a></h3>
-      <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/8.jpg"></a></i>
-      <h3><a href="/">爱情没有永远，地老天荒也走不完</a></h3>
-      <p>也许，爱情没有永远，地老天荒也走不完，生命终结的末端，苦短情长。站在岁月的边端，那些美丽的定格，心伤的绝恋，都被四季的掩埋，一去不返。徒剩下这荒芜的花好月圆，一路相随，流离天涯背负了谁的思念？</p>
-    </li>
-    <li><i><a href="/"><img src="/static/web/images/9.jpg"></a></i>
-      <h3><a href="/">擦肩而过</a></h3>
-      <p>《擦肩而过》文/清河鱼 编绘/天朝羽打开一扇窗，我不曾把你想得平常。看季节一一过往。你停留的那个地方，是否依然花儿开放？在夜里守靠着梦中的，想那仿佛前世铭刻进心肠的</p>
-    </li>
+    </div>
+    <!--banner end-->
+    <div class="bloglist">
+      <ul>
+        <li> <i class="blogpic"><a href="#"><img src="/static/web/images/1.jpg" alt=""> </a></i>
+          <dl>
+            <dt><a href="#" target="_blank">个人博客，我为什么要用帝国cms？</a></dt>
+            <dd><span class="bloginfo">选择帝国cms，做一个博客系统，很多人都说是大材小用。确实是有那种感觉，因为cms有很多功能表用不上。但是帝国cms的安装包也就才6M，如果你放一张高清的1920的图，都比这安装包大！我就来说一说我为什么要用帝国cms...</span>
+              <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">2018-07-03</span></p>
+              <a class="read" href="#">阅读更多</a> </dd>
+          </dl>
+        </li>
+        <li> <i class="blogpic"><a href="#"><img src="/static/web/images/2.jpg" alt=""> </a></i>
+          <dl>
+            <dt><a href="#" target="_blank">第二届 优秀个人博客模板比赛参选活动</a></dt>
+            <dd><span class="bloginfo">只要你是在校大学生，不管你是新生，还是即将毕业，不管你是前端菜鸟，还是前端大神，只要你会html，这里将会是你展示才能的大平台</span>
+              <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">2018-07-03</span></p>
+              <a class="read" href="#">阅读更多</a> </dd>
+          </dl>
+        </li>
+        <li> <i class="blogpic"><a href="#"><img src="/static/web/images/3.jpg" alt=""> </a></i>
+          <dl>
+            <dt><a href="#" target="_blank">D设计师博客-一个热爱生活的设计师</a></dt>
+            <dd><span class="bloginfo">D设计师博客网站，站长是一个80后室内设计师！也是一个机械设计工程师，一边工作一边积累经验，也经常逛技术论坛，发点文章，回复一些技术问题。做过设计论坛，被称为“神”的技术大咖。...</span>
+              <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">2018-07-03</span></p>
+              <a class="read" href="#">阅读更多</a> </dd>
+          </dl>
+        </li>
+        <li> <i class="blogpic"><a href="#"><img src="/static/web/images/4.jpg" alt=""> </a></i>
+          <dl>
+            <dt><a href="#" target="_blank">《寻之旅》一个关于旅游，游记的个人博客</a></dt>
+            <dd><span class="bloginfo">《寻之旅》www.searchtrip.cn 这是一个记录游记，旅游分享的个人博客，我们相识于3月份，一句“你可以先不要删我嘛”，还有海绵宝宝的头像，让我对他印象深刻...</span>
+              <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">2018-07-03</span></p>
+              <a class="read" href="#">阅读更多</a> </dd>
+          </dl>
+        </li>
+        <li> <i class="blogpic"><a href="#"><img src="/static/web/images/4.jpg" alt=""> </a></i>
+          <dl>
+            <dt><a href="#" target="_blank">《寻之旅》一个关于旅游，游记的个人博客</a></dt>
+            <dd><span class="bloginfo">《寻之旅》www.searchtrip.cn 这是一个记录游记，旅游分享的个人博客，我们相识于3月份，一句“你可以先不要删我嘛”，还有海绵宝宝的头像，让我对他印象深刻...</span>
+              <p class="timeinfo"><span class="lanmu"><a href="#" target="_blank">个人博客</a></span><span class="date">2018-07-03</span></p>
+              <a class="read" href="#">阅读更多</a> </dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <!--bloglist end-->
   </main>
-</article>
+  <aside class="sidebar">
+    <div class="fenlei">
+      <ul class="flnav">
+        <li class="flselect"><a href="#" title="最新文章" class="pall"></a></li>
+        <li><a href="#" title="站长推荐" class="pgood"></a></li>
+        <li><a href="#" title="点击排行" class="pbro"></a></li>
+        <li><a href="#" title="头条关注" class="pfav"></a></li>
+      </ul>
+    </div>
+    <div class="newstw">
+      <ul class="sidenews">
+        <h2>最新文章</h2>
+        <li> <i><img src="/static/web/images/1.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/2.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/3.jpg"></i>
+          <p><a href="/">html5个人博客模板《More》</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/4.jpg"></i>
+          <p><a href="/">html5古典个人博客模板《青砖屋檐》</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/5.jpg"></i>
+          <p><a href="/">html5个人博客模板主题《心蓝时间轴》</a></p>
+          <span>2018-05-13</span> </li>
+      </ul>
+      <ul class="sidenews">
+        <h2>站长推荐</h2>
+        <li> <i><img src="/static/web/images/6.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/7.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/8.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/9.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/10.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+      </ul>
+      <ul class="sidenews">
+        <h2>点击排行</h2>
+        <li> <i><img src="/static/web/images/1.jpg"></i>
+          <p><a href="/">别让这些闹心的套路，毁了你的网页设计</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/2.jpg"></i>
+          <p><a href="/">给我模板PSD源文件，我给你设计HTML！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/3.jpg"></i>
+          <p><a href="/">html5个人博客模板《More》</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/4.jpg"></i>
+          <p><a href="/">html5古典个人博客模板《青砖屋檐》</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/5.jpg"></i>
+          <p><a href="/">html5个人博客模板主题《心蓝时间轴》</a></p>
+          <span>2018-05-13</span> </li>
+      </ul>
+      <ul class="sidenews">
+        <h2>头条关注</h2>
+        <li> <i><img src="/static/web/images/12.jpg"></i>
+          <p><a href="/">个人博客《草根寻梦》—手机版模板</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/11.jpg"></i>
+          <p><a href="/">安静地做一个爱设计的女子</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/10.jpg"></i>
+          <p><a href="/">个人博客，属于我的小世界！</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/9.jpg"></i>
+          <p><a href="/">作为一个设计师,如果遭到质疑你是否能恪守自己的原则?</a></p>
+          <span>2018-05-13</span> </li>
+        <li> <i><img src="/static/web/images/8.jpg"></i>
+          <p><a href="/">Come on,行动起来吧!我们和时间来一场赛跑!</a></p>
+          <span>2018-05-13</span> </li>
+      </ul>
+    </div>
+    <div class="ad"> <img src="/static/web/images/7.jpg"> </div>
+    <div class="about">
+      <h2 class="hometitle">关于本站</h2>
+      <ul>
+        <div class="avatar"> <img src="/static/web/images/tx.png" alt=""> </div>
+        <p class="abname">Michael  | 胡才豪</p>
+        <p class="abtext"> 一个90后草根菜鸟！１8年入行。一直潜心研究web前端技术，一边工作一边积累经验，分享一些个人博客模板，以及SEO优化等心得。 </p>
+        <li><a class="xlwb" href="#" ></a></li>
+        <li><a class="txqq" href="#" ></a></li>
+        <li><a class="rss" href="#" ></a></li>
+        <li class="wxpic"><a class="wx" href="#"></a><img src="/static/web/images/grwx.png"></li>
+      </ul>
+    </div>
+    <div class="tjlm">
+      <h2 class="hometitle">推荐栏目</h2>
+      <ul>
+        <li><a href="{{ url_for('web.about') }}">关于我</a></li>
+        <li><a href="{{ url_for('web.share') }}">模板分享</a></li>
+        <li><a href="{{ url_for('web.list') }}">博客日记</a></li>
+      </ul>
+    </div>
+  </aside>
+  <!--sidebar end-->
+</div>
+<!--wrapper end-->
 {% endblock %}
+
 {% block footer %}
 <footer>
-  <p>Design by <a href="http://www.yangqq.com" target="_blank">杨青个人博客</a> <a href="/">蜀ICP备11002373号-1</a></p>
+  <div class="footer">
+    <div class="wxbox">
+      <ul>
+        <li><img src="/static/web/images/grwx.png"><span>我的微信</span></li>
+        <li><img src="/static/web/images/wx.jpg"><span>微信公众号</span></li>
+      </ul>
+    </div>
+    <div class="bzjj">
+      <h2>本站简介</h2>
+      <p>胡才豪个人博客，是一个站在web前端设计之路的女程序员个人网站，提供个人博客模板免费资源下载的个人原创网站。</p>
+    </div>
+    <div class="other">
+      <h2>网站版权</h2>
+      <p>未经授权禁止转载、摘编、复制或建立镜像，如有违反，追究法律责任。举报邮箱：476847113@qq.com</p>
+      <p>&nbsp;</p>
+      <p>备案号：赣ICP备11002373号-1</p>
+    </div>
+  </div>
 </footer>
 <a href="#" class="cd-top">Top</a>
 {% endblock %}
+

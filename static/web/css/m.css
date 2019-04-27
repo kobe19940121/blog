@@ -1,62 +1,99 @@
 @charset "gb2312";
-@media screen and (min-width: 1024px) and (max-width: 1199px) {
-header { width: 96%; margin: auto }
+@media screen and (min-width: 1024px) and (max-width: 1140px) {
+.topbox, nav, .wrapper, .footer { width: 96%; }
+#starlist li { width: 100px }
+.links li { width: 45%!important; }
+.sharelist li { width: 27% }
 }
 @media screen and (min-width: 960px) and (max-width: 1023px) {
-header { width: 96%; margin: auto }
-article { width: 96% }
-nav { width: 96%; }
-#starlist li { padding-left: 20px }
-.picshowlist { display: none }
-.tuijian, .guanzhu { width: 270px; }
+.topbox, nav, .wrapper, .footer { width: 96%; }
+#starlist li { width: 94px }
+.links li { width: 45%!important; }
+.sharelist li { padding: 15px }
+.infosbox img { width: 100% }
 }
 @media screen and (min-width: 768px) and (max-width: 959px) {
-header { width: 96%; margin: auto }
-article { width: 96% }
-nav { width: 96%; }
-#starlist li { padding-left: 15px }
-.picbox ul { width: 23%; }
-.picshowlist { display: none }
-.pagelist a { padding: 2px 3px; }
+.topbox, nav, .wrapper, .footer { width: 96%; }
+.sidebar { display: none }
+main { width: 100% }
+#starlist { display: none; background: rgba(0,0,0,.5); width: 100%; margin-left: 0; }
+#starlist li { display: block; padding: 0 0 0 0; width: 60%; background: #fff; border-bottom: #ddd 1px solid; }
+.sub { display: block; box-shadow: none; padding-left: 0 }
+#starlist .sub li { border-bottom: none; }
+#starlist li:last-child { padding-bottom: 100% }
+#starlist .sub li:last-child { padding-bottom: 0 }
+#mnavh { position: absolute; display: block; top: 50px; right: 10px }
+.menu:after { display: none }
+.sharelist li { padding: 15px }
+.infosbox img ,.abinfos img { width: 100% }
+.wxbox { width: 32% }
+.other { width: 32% }
+.footer .bzjj { margin-left: 0 }
 }
  @media only screen and (min-width: 480px) and (max-width: 767px) {
-header { width: 96%; margin: auto }
-article { width: 96% }
-.logo { width: 100% }
-nav { width: 100%; position: relative }
-#starlist { display: none; background: rgba(0,0,0,.5); width: 100% }
-#starlist li { display: block; width: 70%; padding: 0; background: #FFF }
+.topbox, nav, .wrapper, .footer { width: 96%; }
+.sidebar { display: none }
+main { width: 100% }
+#starlist { display: none; background: rgba(0,0,0,.5); width: 100%; margin-left: 0; }
+#starlist li { display: block; padding: 0 0 0 0; width: 60%; background: #fff; border-bottom: #ddd 1px solid; }
+.sub { display: block; box-shadow: none; padding-left: 0 }
+#starlist .sub li { border-bottom: none; }
 #starlist li:last-child { padding-bottom: 100% }
-#mnavh { position: absolute; display: block; top: 8px; left: 10px }
-.l_box { display: none }
-.r_box, .infosbox, .picsbox, main { width: 100% }
-.pagelist a { padding: 2px 3px; }
-.picbox ul { width: 22%; }
-.picbox ul li i { margin: 5px }
-.picinfo { display: none }
-.picshowlist { display: none }
-.lmname, .view { display: none }
+#starlist .sub li:last-child { padding-bottom: 0 }
+#mnavh { position: absolute; display: block; top: 50px; right: 10px }
+.menu:after { display: none }
+.sharelist li { padding: 10px }
+.wxbox { width: 50% }
+.other { display:none }
+.footer .bzjj { margin-left: 0; width:50% }
+.welcome{ display:none}
+.searchbox{ position: inherit}
+.blogpic{ height:auto }
+.blogpic img{ height:auto}
+.bloglist dt{
+  font-size:16px }
+.bloglist dl{ width:auto; height:auto;-webkit-line-clamp: 2;}
+.bloglist dd{margin: 6px 0;}
+.timeinfo,.bloglist .read{ display:none}
+.fader .pager_list{ bottom:-20px}
+.sharelist .tpic{ height:100px}
+.fengm .fpic{ width:31%; height:100px}
+.infosbox img ,.abinfos img { width: 100% }
+.pagelist{ text-align:center}
 }
 @media only screen and (max-width: 479px) {
-header { width: 96%; margin: auto }
-article { width: 100% }
-.logo { width: 100% }
-nav { width: 100%; position: relative }
-#starlist { display: none; background: rgba(0,0,0,.5); width: 100% }
-#starlist li { display: block; width: 70%; padding: 0; background: #FFF }
+.topbox, nav, .wrapper, .footer { width: 96%; }
+.sidebar,.navbar { display: none }
+main { width: 100% }
+.wrapper{    margin: 90px auto 0;}
+#starlist { display: none; background: rgba(0,0,0,.5); width: 100%; margin-left: 0; }
+#starlist li { display: block; padding: 0 0 0 0; width: 60%;line-height: 60px; background: #fff; border-bottom: #ddd 1px solid; }
+.sub { display: block; box-shadow: none; padding-left: 0 }
+#starlist .sub li { border-bottom: none; }
 #starlist li:last-child { padding-bottom: 100% }
-#mnavh { position: absolute; display: block; top: 8px; left: 10px }
-.l_box { display: none }
-.r_box, .infosbox, .picsbox, main { width: 100% }
-.picbox { width: 96%; margin: auto }
-.picbox ul { width: 48%; margin-right: 0 }
-.picbox ul:nth-child(1), .picbox ul:nth-child(3) { margin-right: 8px }
-.piclistshow ul li { height: 100px; padding: 0 }
-.piclistshow .picimg { height: 100px }
-.picbox ul li i { margin: 2px }
-.picinfo { display: none }
-.picshowlist, .pictxt { display: none }
-.lmname, .view { display: none }
-.r_box li i { float: none; margin: 0 auto 20px; width: 100%; max-height: initial }
-.newsview { padding: 0 15px; }
+#starlist .sub li:last-child { padding-bottom: 0 }
+#mnavh { position: absolute; display: block; top: 15px; right: 10px }
+.menu:after { display: none }
+.sharelist li {     width: 37%; }
+.other{ display:none}
+.footer .bzjj{ width:60%}
+.wxbox{ width:100px}
+.wxbox li:last-child{ display:none}
+.welcome{ display:none}
+.searchbox{ position: inherit}
+.blogpic{ height:auto }
+.blogpic img{ height:auto}
+.bloglist dt{
+  font-size:16px }
+.bloglist dl{ width:auto; height:auto;-webkit-line-clamp: 2;}
+.bloglist dd{margin: 6px 0;}
+.timeinfo,.bloglist .read{ display:none}
+.fader .pager_list{ bottom:-20px}
+.sharelist .tpic{ height:100px}
+.fengm .fpic{ width:31%; height:100px}
+.infosbox img,.abinfos img { width: 100% }
+.news_title{ padding:10px}
+.newsview{ padding: 0 15px}
+.pagelist{ text-align:center}
+.imginfo{ font-size:16px; padding:0 20px}
 }

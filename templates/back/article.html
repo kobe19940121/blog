@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand" href="/">Michael Jordan</a> </div>
+          <a class="navbar-brand" href="">Michael Jordan</a> </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="">消息 <span class="badge">1</span></a></li>
@@ -34,13 +34,6 @@
             <li><a href="{{ url_for('back.logout') }}" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
             <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
           </ul>
-          <form action="" method="post" class="navbar-form navbar-right" role="search">
-            <div class="input-group">
-              <input type="text" class="form-control" autocomplete="off" placeholder="键入关键字搜索" maxlength="15">
-              <span class="input-group-btn">
-              <button class="btn btn-default" type="submit">搜索</button>
-              </span> </div>
-          </form>
         </div>
       </div>
     </nav>
@@ -92,12 +85,6 @@
         </div>
         <footer class="message_footer">
           <nav>
-            <div class="btn-toolbar operation" role="toolbar">
-              <div class="btn-group" role="group"> <a class="btn btn-default" onClick="select()">全选</a> <a class="btn btn-default" onClick="reverse()">反选</a> <a class="btn btn-default" onClick="noselect()">不选</a> </div>
-              <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="删除全部选中" name="checkbox_delete">删除</button>
-              </div>
-            </div>
             <ul class="pagination pagenav">
               <li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a> </li>
               <li class="active"><a href="#">1</a></li>
